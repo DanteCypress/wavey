@@ -4,7 +4,7 @@ import {faPlay,faAngleLeft,faAngleRight} from '@fortawesome/free-solid-svg-icons
 import '../styles/app.scss'
 
 
-function Player() {
+const Player=({currentSong})=> {
     return (
         <div className='player'>
             <div className="time-control">
@@ -15,7 +15,7 @@ function Player() {
             <div className="play-control">
                 <FontAwesomeIcon className='skip-back' size="2x" icon={faAngleLeft} />
                 <FontAwesomeIcon className='play' size="2x" icon={faPlay} />
-                <FontAwesomeIcon className='skip-fprward' size="2x" icon={faAngleRight} />
+                <FontAwesomeIcon className='skip-forward' size="2x" icon={faAngleRight} />
             </div>
         </div>
     )
