@@ -10,8 +10,8 @@ import "../styles/app.scss";
 
 const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
   const [songInfo, setsongInfo] = useState({
-    currentTime: null,
-    duration: null,
+    currentTime: 0,
+    duration: 0,
   });
 
   const getTime = (time) => {
@@ -36,11 +36,22 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     setsongInfo({ ...songInfo, currentTime: current, duration });
   };
 
+  const dragHandler = (e) => {
+    audioRef.current.currentTime = e.target.value;
+    setsongInfo({ ...songInfo, currentTime: e.target.value });
+  };
+
   return (
     <div className="player">
       <div className="time-control">
         <p>{getTime(songInfo.currentTime)}</p>
-        <input type="range" />
+        <input
+          min={0}
+          max={songInfo.duration}
+          value={songInfo.currentTime}
+          type="range"
+          onChange={dragHandler}
+        />
         <p>{getTime(songInfo.duration)}</p>
       </div>
       <div className="play-control">
@@ -49,7 +60,7 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
           className="play"
           onClick={playSongHandler}
           size="2x"
-          icon={faPlay}
+          icon={isPlaying ? faPause : faPlay}
         />
         <FontAwesomeIcon
           className="skip-forward"
