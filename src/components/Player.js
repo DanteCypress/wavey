@@ -15,6 +15,7 @@ const Player = ({
   audioRef,
   setsongInfo,
   songInfo,
+  isDark,
 }) => {
   const getTime = (time) => {
     return (
@@ -39,7 +40,7 @@ const Player = ({
 
   return (
     <div className="player">
-      <div className="time-control">
+      <div className={`time-control ${isDark ? "time-control-dark-mode" : ""}`}>
         <p>{getTime(songInfo.currentTime)}</p>
         <input
           min={0}
@@ -51,15 +52,19 @@ const Player = ({
         <p>{getTime(songInfo.duration)}</p>
       </div>
       <div className="play-control">
-        <FontAwesomeIcon className="skip-back" size="2x" icon={faAngleLeft} />
         <FontAwesomeIcon
-          className="play"
+          className={`skip-back ${isDark ? "skip-forward-dark-mode" : ""}`}
+          size="2x"
+          icon={faAngleLeft}
+        />
+        <FontAwesomeIcon
+          className={`play ${isDark ? "play-dark-mode" : ""}`}
           onClick={playSongHandler}
           size="2x"
           icon={isPlaying ? faPause : faPlay}
         />
         <FontAwesomeIcon
-          className="skip-forward"
+          className={`skip-forward ${isDark ? "skip-forward-dark-mode" : ""}`}
           size="2x"
           icon={faAngleRight}
         />

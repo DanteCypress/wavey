@@ -27,3 +27,37 @@
     cursor: pointer;
   }
 }
+
+.time-control-dark-mode {
+  width: 50%;
+  color: rgb(65, 65, 65);
+
+  display: flex;
+  input {
+    width: 100%;
+    padding: 1rem 0rem;
+  }
+  p {
+    padding: 1rem;
+  }
+}
+.play-control-dark-mode {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  width: 30%;
+
+  svg {
+    cursor: pointer;
+  }
+}
+.skip-back-dark-mode {
+  color: rgb(65, 65, 65);
+}
+.skip-forward-dark-mode {
+  color: rgb(65, 65, 65);
+}
+.play-dark-mode {
+  color: rgb(65, 65, 65);
+}

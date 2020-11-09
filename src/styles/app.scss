@@ -3,11 +3,24 @@
   padding: 0;
   box-sizing: border-box;
 }
-h1,
-h2,
-h3 {
-  color: rgb(54, 54, 54);
+.light-mode {
+  height: 100vh;
+  h1,
+  h2,
+  h3 {
+    color: rgb(54, 54, 54);
+  }
 }
+.dark-mode {
+  background: #1a1919;
+  height: 100vh;
+  h1,
+  h2,
+  h3 {
+    color: #999;
+  }
+}
+
 body {
   font-family: "Roboto", sans-serif;
 }

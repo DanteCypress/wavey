@@ -10,21 +10,27 @@ function App() {
   const audioRef = useRef(null);
 
   const [songs, setSongs] = useState(data());
+  const [isDark, setIsDark] = useState(false);
   const [currentSong, setCurrentSong] = useState(songs[1]);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [libraryStatus, setLibraryStatus] = useState(false);
   const [songInfo, setsongInfo] = useState({
     currentTime: 0,
     duration: 0,
   });
-  const [libraryStatus, setLibraryStatus] = useState(false);
   const timeUpdateHandler = (e) => {
     const current = e.target.currentTime;
     const duration = e.target.duration;
     setsongInfo({ ...songInfo, currentTime: current, duration });
   };
   return (
-    <div className="App">
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
+    <div className={`light-mode ${isDark ? "dark-mode" : ""}`}>
+      <Nav
+        libraryStatus={libraryStatus}
+        setLibraryStatus={setLibraryStatus}
+        isDark={isDark}
+        setIsDark={setIsDark}
+      />
       <Song currentSong={currentSong} />
       <Player
         isPlaying={isPlaying}
@@ -33,6 +39,7 @@ function App() {
         audioRef={audioRef}
         setsongInfo={setsongInfo}
         songInfo={songInfo}
+        isDark={isDark}
       />
       <Library
         setCurrentSong={setCurrentSong}
