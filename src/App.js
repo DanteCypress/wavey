@@ -31,7 +31,7 @@ function App() {
         isDark={isDark}
         setIsDark={setIsDark}
       />
-      <Song currentSong={currentSong} />
+      <Song currentSong={currentSong} isPlaying={isPlaying} />
       <Player
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
