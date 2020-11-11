@@ -8,11 +8,22 @@ const Library = ({
   isPlaying,
   setSongs,
   libraryStatus,
+  isDark,
 }) => {
   return (
-    <div className={`library ${libraryStatus ? "active-library" : ""}`}>
+    <div
+      className={`library ${
+        libraryStatus && isDark
+          ? "active-library library-dark-mode"
+          : libraryStatus
+          ? "active-library"
+          : ""
+      }`}
+    >
       <h1>Library</h1>
-      <div className="library-songs">
+      <div
+        className={`library-songs ${isDark ? "library-songs-dark-mode" : ""}`}
+      >
         {songs.map((song) => (
           <LibrarySong
             songs={songs}
@@ -23,6 +34,7 @@ const Library = ({
             key={song.id}
             isPlaying={isPlaying}
             setSongs={setSongs}
+            isDark={isDark}
           />
         ))}
       </div>

@@ -40,6 +40,8 @@ function App() {
         setsongInfo={setsongInfo}
         songInfo={songInfo}
         isDark={isDark}
+        songs={songs}
+        setCurrentSong={setCurrentSong}
       />
       <Library
         setCurrentSong={setCurrentSong}
@@ -49,6 +51,7 @@ function App() {
         setSongs={setSongs}
         libraryStatus={libraryStatus}
         setLibraryStatus={setLibraryStatus}
+        isDark={isDark}
       />
       <audio
         onLoadedMetadata={timeUpdateHandler}

@@ -8,6 +8,7 @@ const LibrarySong = ({
   audioRef,
   isPlaying,
   setSongs,
+  isDark,
 }) => {
   const songSelectHandler = () => {
     // const selectedSong = songs.filter((state) => state.id === id);
@@ -42,8 +43,15 @@ const LibrarySong = ({
   return (
     <div
       onClick={songSelectHandler}
-      className={`library-song ${song.active ? "selected" : ""}`}
+      className={`library-song ${
+        song.active
+          ? "library-song-dark-mode selected-dark-mode"
+          : song.active && isDark
+          ? "selected"
+          : ""
+      }`}
     >
+      {/* // {`library-song ${song.active ? "selected" : ""}`}> */}
       <img src={song.cover} alt={song.name}></img>
       <div className="song-description">
         <h3>{song.name}</h3>

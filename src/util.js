@@ -23,7 +23,6 @@ function chillHop() {
       color: ["#62558d", "#ffc6b5"],
       audio: "https://mp3.chillhop.com/serve.php/?mp3=9278",
     },
-    ,
     {
       name: "Calm",
       artist: "ØDYSSEE, Florent Garcia",
@@ -34,7 +33,6 @@ function chillHop() {
       color: ["#4459ced", "#ffc9bd"],
       audio: "https://mp3.chillhop.com/serve.php/?mp3=9285",
     },
-    ,
     {
       name: "Wistfulness",
       artist: "xander., WEI",
