@@ -40,43 +40,55 @@ function App() {
   };
 
   return (
-    <div className={`light-mode ${isDark ? "dark-mode" : ""}`}>
-      <Nav
-        libraryStatus={libraryStatus}
-        setLibraryStatus={setLibraryStatus}
-        isDark={isDark}
-        setIsDark={setIsDark}
-      />
-      <Song currentSong={currentSong} isPlaying={isPlaying} />
-      <Player
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-        currentSong={currentSong}
-        audioRef={audioRef}
-        setsongInfo={setsongInfo}
-        songInfo={songInfo}
-        isDark={isDark}
-        songs={songs}
-        setCurrentSong={setCurrentSong}
-        setSongs={setSongs}
-      />
-      <Library
-        setCurrentSong={setCurrentSong}
-        songs={songs}
-        audioRef={audioRef}
-        isPlaying={isPlaying}
-        setSongs={setSongs}
-        libraryStatus={libraryStatus}
-        setLibraryStatus={setLibraryStatus}
-        isDark={isDark}
-      />
-      <audio
-        onLoadedMetadata={timeUpdateHandler}
-        onTimeUpdate={timeUpdateHandler}
-        ref={audioRef}
-        src={currentSong.audio}
-        onEnded={songEndHandler}
-      ></audio>
+    <div className={`container ${isDark ? "dark-container" : ""}`}>
+      <div
+        className={`light-mode ${
+          isDark && libraryStatus
+            ? "dark-mode library-active"
+            : isDark
+            ? "dark-mode"
+            : libraryStatus
+            ? "library-active"
+            : ""
+        }`}
+      >
+        <Nav
+          libraryStatus={libraryStatus}
+          setLibraryStatus={setLibraryStatus}
+          isDark={isDark}
+          setIsDark={setIsDark}
+        />
+        <Song currentSong={currentSong} isPlaying={isPlaying} />
+        <Player
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          currentSong={currentSong}
+          audioRef={audioRef}
+          setsongInfo={setsongInfo}
+          songInfo={songInfo}
+          isDark={isDark}
+          songs={songs}
+          setCurrentSong={setCurrentSong}
+          setSongs={setSongs}
+        />
+        <Library
+          setCurrentSong={setCurrentSong}
+          songs={songs}
+          audioRef={audioRef}
+          isPlaying={isPlaying}
+          setSongs={setSongs}
+          libraryStatus={libraryStatus}
+          setLibraryStatus={setLibraryStatus}
+          isDark={isDark}
+        />
+        <audio
+          onLoadedMetadata={timeUpdateHandler}
+          onTimeUpdate={timeUpdateHandler}
+          ref={audioRef}
+          src={currentSong.audio}
+          onEnded={songEndHandler}
+        ></audio>
+      </div>
     </div>
   );
 }
