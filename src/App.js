@@ -11,17 +11,27 @@ function App() {
 
   const [songs, setSongs] = useState(data());
   const [isDark, setIsDark] = useState(false);
-  const [currentSong, setCurrentSong] = useState(songs[1]);
+  const [currentSong, setCurrentSong] = useState(songs[0]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [libraryStatus, setLibraryStatus] = useState(false);
   const [songInfo, setsongInfo] = useState({
     currentTime: 0,
     duration: 0,
+    animationPercentage: 0,
   });
   const timeUpdateHandler = (e) => {
     const current = e.target.currentTime;
     const duration = e.target.duration;
-    setsongInfo({ ...songInfo, currentTime: current, duration });
+    const roundedCurrent = Math.round(current);
+    const roundedDuration = Math.round(duration);
+    const animation = Math.round((roundedCurrent / roundedDuration) * 100);
+    console.log(animation);
+    setsongInfo({
+      ...songInfo,
+      currentTime: current,
+      duration,
+      animationPercentage: animation,
+    });
   };
   return (
     <div className={`light-mode ${isDark ? "dark-mode" : ""}`}>
