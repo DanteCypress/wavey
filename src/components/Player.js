@@ -74,7 +74,7 @@ const Player = ({
   };
   //add styles
   const trackAnim = {
-    transform: `translatex(${songInfo.animationPercentage}%)`,
+    transform: `translatex(${songInfo.animationPercentage || 0}%)`,
   };
   return (
     <div className="player">
